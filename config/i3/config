@@ -16,14 +16,12 @@ hide_edge_borders both                           # Hide border in all cases
 show_marks no                                    # No marks on windows are drawn in their window decoration
 font pango:firacode 13                           # Set font
 for_window [class="^.*"] border pixel 0          # Disable topbar when there is only one window in this workspace
-for_window [] border pixel 0                     # Disable bottom status bar for saving pixels
 
 ## Auto starting applications on i3 startup
 exec --no-startup-id i3-msg 'workspace 1; exec urxvt -hold -e zsh -c "$HOME/bin/event && $HOME/bin/todo && $HOME/bin/updater && zsh"'
 exec --no-startup-id i3-msg 'workspace 2; exec qutebrowser'
 exec --no-startup-id i3-msg 'workspace 5; exec urxvt -hold -e zsh -c "mutt && zsh"' 
-exec --no-startup-id i3-msg 'workspace 10; exec urxvt -hold -e zsh -c "htop -C && zsh"' 
-exec --no-startup-id i3-msg 'workspace 1'                      # This does not switch me back to workspace 1 though
+exec --no-startup-id i3-msg 'workspace 10; exec urxvt -hold -e zsh -c "htop -C && zsh"; workspace 1' 
 
 ## Auto put programs in the specific workspace
 ### No space after workspace number is allowed
@@ -110,4 +108,6 @@ mode "resize" {
         bindsym Escape mode "default"
 }
 
-exec --no-startup-id i3-msg 'workspace 1'
+bar {
+        mode invisible                                   # Disable bottom status bar for saving pixels
+}
