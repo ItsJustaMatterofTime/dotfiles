@@ -1,0 +1,83 @@
+" au BufRead /tmp/mutt-* set tw=50
+
+" ======================================================================
+
+call plug#begin('~/.vim/plugins')
+
+Plug 'itchyny/lightline.vim'
+"Plug 'lervag/vimtex'
+
+call plug#end()
+
+" ======================================================================
+
+syntax off
+
+"syntax on
+"colorscheme gotham
+
+" http://stackoverflow.com/questions/24090901/add-end-of-line-comment-to-vim-syntax
+" syn match vimMapRhs '.*\ze|\s*".*'
+" syn match vimLineComment '|\s*".*$'
+
+" ======================================================================
+
+filetype plugin on
+set nocompatible                           " Make Vim Vi uncompatible
+set wildmenu                               " Enchance command line wildcard functionality
+set wildmode=longest:list,full
+set hidden                                 " Buffer becomes hidden when you switch away
+" set clipboard=unnamedplus                  " Set copying to system clipboard as default
+set autowrite                              " Save file when executing some commands such as :bn :bp
+set gdefault                               " Set substitute flag g as default, pass g to replace only one occurence in a line
+set smarttab
+set expandtab
+set autoindent
+set incsearch                              " Hightlight the first searched result
+set history=1000
+set scrolloff=5                            " Keep <number> lines above and below the cursor
+set mouse=a                                " Set mouse click behavior
+set laststatus=2                           " Always show statusbar
+set cindent                                " Automatic C program indenting
+set showmatch                              " Ensure brackets make a pair
+set timeoutlen=400                         " Set keypress timeout length in ms
+
+" ======================================================================
+
+""Replace :%:h<Tab> with :%%
+cnoremap <expr> %%  getcmdtype() == ':' ? expand('%:h').'/' : '%%'
+
+""Use mathchit plugin
+packadd! matchit
+
+" ======================================================================
+
+let mapleader="\ "                         " Change <Leader> to some other key
+
+cmap w!! w !sudo tee > /dev/null %|        " Press w!! to save file as root
+nmap oo o<Esc>|                            " Press oo to add a newline below cursor
+nmap OO O<Esc>|                            " Press OO to add a newline above cursor
+imap fj <Esc>|                             " Press fj to get out of insert mode
+imap jf <Esc>|                             " Press jf to get out of insert mode
+
+" ======================================================================
+
+" http://vi.stackexchange.com/questions/454/whats-the-simplest-way-to-strip-trailing-whitespace-from-all-lines-in-a-file
+fun! TrimWhitespace()
+    let l:save = winsaveview()
+    %s/\s\+$//e
+    call winrestview(l:save)
+endfun
+
+" http://stackoverflow.com/questions/11497978/how-can-i-pass-the-current-line-to-a-vimscript-function
+" http://stackoverflow.com/questions/23323747/vim-vimscript-get-exact-character-under-the-cursor
+" function! Func()
+        " let char=getline('.')[col('$')-2]
+        " if(char == ';')
+                " echo "Ding!"
+        " else
+                " echo char
+        " endif
+" endfunction
+
+" map aa :call Func()<CR>

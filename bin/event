@@ -1,0 +1,17 @@
+#!/bin/bash
+
+DAY=$1
+
+if [[ -z $DAY ]]; then
+        DAY=21
+fi
+
+printf "\n"
+echo " ##########################"
+echo " # Events Within $DAY Days: #"
+echo " ##########################"
+printf "\n"
+
+calcurse -d $DAY
+
+printf "\n\n"

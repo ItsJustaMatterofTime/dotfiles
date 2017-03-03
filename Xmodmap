@@ -1,0 +1,3 @@
+keycode 66 = Control_R
+clear Lock
+add Control = Control_R

@@ -1,0 +1,135 @@
+source "gpg2 -dq $HOME/.mutt/user-info.gpg |"
+## my_(work, music, junk, unused)_(username/email/pass)
+## my_realname_(passport/simplified/traditional/english)
+## my_gpg_id
+
+set imap_user = $my_work_email
+set imap_pass = $my_work_pass
+set smtp_url=smtps://$my_work_email:$my_work_pass@smtp.gmail.com
+
+set folder = imaps://imap.gmail.com/
+set spoolfile = +INBOX
+set postponed = "+[Gmail]/Drafts"
+
+## UI ##
+########        ## bright<color> to make it bold
+set sidebar_format = "%B%?F? [%F]?%* %?N?%N/?%S"        # Set sidebar format
+set sidebar_width = 30                                  # Measured in screen columns. Set to 20 could display 20 ASCII characters, or 10 Chinese characters
+set sidebar_visible = yes                               # Show sidebar
+set sidebar_divider_char=' |'                           # new set sidebar delim
+color sidebar_new brightgreen default                    # Specify the color of mailboxes containing new mail
+
+color header white        default .                     # Headers are this color,
+color header red    white ^Subject                      # Except for `Subject:'.
+color header black          green   ^Followup-To:       # Followup header
+color status    brightblue default
+color indicator default red 
+color markers   cyan  black
+
+color quoted0   blue        default
+color quoted1   green       default
+color quoted2   red         default
+color quoted3   blue        default
+color quoted4   green       default
+color quoted5   red         default
+color quoted6   blue        default
+color signature green       default
+color tilde     cyan  default
+color   tree        magenta             default
+
+color index brightyellow default ~N                      # Make new messages yellow
+
+## Format ##
+############
+set index_format   = "%4C   %Z   %{%d %b %y [%Z]}   %-15.15F   %s"
+set forward_format="Fw: %s"     # subject in forwarded messages
+set date_format="%d/%m/%y %H:%M %Z"
+set quote_regexp="^([A-Za-z ]+>|[]%>:|}-][]>:|}-]*)"
+
+## Setting ##
+#############
+# set editor            = "vim +/^$ ++1"          # Set editor for composing emails
+set editor="vim +':set textwidth=70' +':set wrap' +\`awk '/^$/ {print i+2; exit} {i++}' %s\` %s"        # Set editor for composing emails
+set mark_old = no                               # Whether or not mutt marks new unread messages as old if you exit a mailbox without reading them
+set imap_check_subscribed                       # Fetch subscribed folders from your server on connection, add them to the mailboxes it polls for new mail
+set header_cache = $HOME/.cache/mutt            # Cache headers for faster loading
+set message_cachedir = $HOME/.cache/mutt        # Cache messages for faster loading
+set message_cache_clean = yes                   # Mutt will clean out obsolete entries from the message cache when the mailbox is synchronized
+set imap_keepalive = 300                        # Keep IMAP connection alive by polling intermittently (time in seconds).
+set mail_check = 1800                           # How often to check for new mail (time in seconds).
+set mail_check_stats = yes                      # Periodically calculate message statistics of a mailbox while polling for new mail
+set mail_check_stats_interval = 3600            # How often (in seconds) mutt will update message counts
+set timeout = 10                                # Seconds to wait until Mutt aborts waiting for input,performs these operations and continues to wait for input
+set hostname = "gmail.com"                      # It is used as the domain part (after “@”) for local email addresses as well as Message-Id headers
+set realname = $my_realname_english             # Specifies what “real” or “personal” name should be used when sending messages
+set from = $my_work_email                       # When set, this variable contains a default from address
+set use_envelope_from                           # Mutt will set the envelope sender of the message
+set ssl_force_tls                               # Require that all connections to remote servers be encrypted
+set signature = $HOME/.mutt/signature           # Append signature file at the end of my email
+set mailcap_path = $HOME/.mutt/mailcap          # Specifies which files to consult when attempting to display MIME bodies not directly supported by Mutt
+set net_inc = 5                                 # Update download progress every $net_inc kilobytes
+set text_flowed                                 # Generally just looks like ordinary text
+set include = yes                               # A copy of the message(s) you are replying to is included in your reply
+set mime_forward                                # Useful for forwarding MIME messages so the receiver can properly view the message as it was delivered to you
+auto_view text/html                             # automatically open evil HTML
+alternative_order text/plain text/enriched text/html # Save html for last
+
+unset imap_passive                              # Allow Mutt to open new imap connection automatically
+unset record                                    # Gmail saves automatically sent e-mail to +[Gmail]/Sent, so we don't need it
+
+ignore *
+unignore From To Cc Bcc Subject Reply-To Organization User-Agent
+hdr_order From To Cc Subject User-Agent
+
+## Custom Header ##
+###################
+set edit_headers=yes                            # This option allows you to edit the header of your outgoing messages along with the body of your message
+unmy_hdr *                                      # unmy_hdr will remove the given user-defined headers
+unset use_domain                                # If unset, no addresses will be qualified
+unset user_agent                                # Don't add mutt header to sent emails
+my_hdr User-Agent: Send from `mutt -vv | ag -s NeoMutt | sed -n 1p`, `mutt -vv | ag -s learn | sed -n 1p`         # NeoMutt Info
+my_hdr System: `uname -s` `uname -r` (`uname -m`)                                                                 # System Info
+
+## Custom Shortcut ##
+#####################
+# bind attach <return> view-mailcap
+bind editor <space> noop
+bind index,pager @ compose-to-sender             # Compose a new email (not a reply) to the sender
+macro index,pager y "<save-message>=[Gmail]/All Mail<enter><enter>" "Archive"
+macro index,pager d "<save-message>=[Gmail]/Trash<enter><enter>" "Trash"
+macro index gi "<change-folder>=INBOX<enter>" "Go to inbox"
+macro index ga "<change-folder>=[Gmail]/All Mail<enter>" "Go to all mail"
+macro index gs "<change-folder>=[Gmail]/Starred<enter>" "Go to starred messages"
+macro index gd "<change-folder>=[Gmail]/Drafts<enter>" "Go to drafts"
+macro index gt "<change-folder>=[Gmail]/Trash<enter>" "Go to trash"
+
+
+## URL handling ##
+##################
+macro index,pager ,b "<enter-command> set my_pdsave=\$pipe_decode<enter>\
+<enter-command> unset pipe_decode<enter>\
+<pipe-message>extract_url<enter>\
+<enter-command> set pipe_decode=\$my_pdsave<enter>" "get URLs"
+
+macro index,pager ,B "<enter-command> set my_pdsave=\$pipe_decode<enter>\
+<enter-command> set pipe_decode<enter>\
+<pipe-message>extract_url<enter>\
+<enter-command> set pipe_decode=\$my_pdsave<enter>" "decrypt message, then get URLs"
+
+message-hook .  'macro index,pager \cb ,b "URL viewer"'
+message-hook ~G 'macro index,pager \cb ,B "URL viewer"'
+
+## Encryption ##
+################
+# my_gpg_id
+set crypt_use_gpgme = yes
+set pgp_timeout = 60                    # Number of seconds after which a cached passphrase will expire if not used
+set crypt_autosign = yes
+set crypt_autoencrypt = yes
+set pgp_encrypt_self = yes
+set pgp_sign_as = $my_gpg_id
+set crypt_replysignencrypted = yes
+set crypt_replysign = yes
+set postpone_encrypt = yes
+set postpone_encrypt_as = $my_gpg_id
+source $HOME/.mutt/gpg.rc

@@ -1,0 +1,12 @@
+#!/bin/bash
+
+/home/sparklinggt/bin/brightness > /dev/null            # Brightness
+
+sleep 1
+sudo /usr/local/bin/k380 > /dev/null                    # Fn keys for k380
+$HOME/.config/i3/scripts/greenclip daemon&              # Start clipboard manager
+
+# event                                                   # Print calendar events
+# todo                                                    # Print TODO
+
+exit 0

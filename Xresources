@@ -1,0 +1,68 @@
+! do not scroll with output
+! URxvt*scrollTtyOutput: false
+URxvt.iso14755: false
+URxvt.letterSpace: -1
+URxvt.scrollBar: false
+URxvt.depth: 24
+URxvt.highlightColor: #dddddd
+URxvt.cursorColor: #eeeeee
+URxvt.fading: 20
+URxvt.fadingColor: #333333
+URxvt.urgentOnBell: true
+URxvt.saveLines: 10000
+URxvt.borderless: true
+URxvt.skipBuiltinGlyphs: true
+URxvt.cursorBlink: true
+
+! extensions
+URxvt.perl-ext-common: default,matcher,keyboard-select,selection-to-clipboard,eval
+
+! eval  ## <C-j> is newline
+URxvt.keysym.C-j: eval:paste_clipboard
+
+! keyboard-select  ## <C-m> is enter
+URxvt.keysym.C-m: perl:keyboard-select:activate
+! URxvt.keysym.C-f: perl:keyboard-select:search
+
+! matcher
+URxvt.matcher.button:       1
+URxvt.keysym.C-BackSpace:    matcher:last
+! URxvt.keysym.M-Delete:    matcher:list
+! URxvt.keysym.C-BackSpace: matcher:select
+URxvt.matcher.launcher.0: /usr/bin/qutebrowser
+URxvt.matcher.rend.0: Uline Bold fg5
+! URxvt.matcher.pattern.1: \\B(/\\S+?):(\\d+)(?=:|$)               ! gcc and all
+! URxvt.matcher.pattern.2: (?:\\s)([\\~\\.]?\\/\{1,1\}[\\.\\w]\\S+)\\b
+! URxvt.matcher.launcher.0: xdg-open
+! URxvt.matcher.launcher.1: vim +$2 $1
+! URxvt.matcher.launcher.2: emacsclient $1
+! URxvt.urlLauncher:          xdg-open
+! URxvt.matcher.rend.2:          Uline fg01
+URxvt.url.launcher: /usr/bin/qutebrowser
+
+URxvt.font: xft:FuraCode Nerd Font:size=15
+
+URxvt.background: #000000
+URxvt.foreground: #FFFFFF
+URxvt.highlight: #d6d6d6
+URxvt.color0: rgb:00/00/00
+URxvt.color1: rgb:CC/00/00
+URxvt.color2: rgb:4E/9A/06
+URxvt.color3: rgb:C4/A0/00
+URxvt.color4: rgb:34/65/A4
+URxvt.color5: rgb:75/50/7B
+URxvt.color6: rgb:06/98/9A
+URxvt.color7: rgb:D3/D7/CF
+URxvt.color8: rgb:55/57/53
+URxvt.color9: rgb:EF/29/29
+URxvt.color10: rgb:8A/E2/34
+URxvt.color11: rgb:FC/E9/4F
+URxvt.color12: rgb:72/9F/CF
+URxvt.color13: rgb:AD/7F/A8
+URxvt.color14: rgb:34/E2/E2
+URxvt.color15: rgb:EE/EE/EC
+
+Xft.antialias:              true
+Xft.rgba:                   rgb
+Xft.hinting:                true
+Xft.hintstyle:              hintslight

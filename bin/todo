@@ -1,0 +1,5 @@
+#!/bin/bash
+
+calcurse -t
+
+printf "\n"

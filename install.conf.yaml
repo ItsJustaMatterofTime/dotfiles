@@ -1,0 +1,65 @@
+
+
+- link:
+    ~/.vimrc: vimrc
+
+
+- clean: ['~']
+
+- link:
+    ~/.gitconfig: gitconfig
+    ~/.extract_urlview: extract_urlview
+    ~/.vim:
+        path: vim/
+        create: true
+    ~/.ideavimrc: ideavimrc
+    ~/.oh-my-zsh:
+        path: oh-my-zsh/
+        create: true
+    ~/.zprofile: zprofile
+    ~/.zshrc: zshrc
+    ~/.mutt/gpg.rc:
+        path: mutt/gpg.rc
+        create: true
+    ~/.mutt/mailcap:
+        path: mutt/mailcap
+        create: true
+    ~/.mutt/muttrc:
+        path: mutt/muttrc
+        create: true
+    ~/bin:
+        path: bin/
+        create: true
+    ~/.urxvt:
+        path: urxvt/
+        create: true
+    ~/.Xmodmap: Xmodmap
+    ~/.Xresources: Xresources
+    ~/.Xdefaults: Xdefaults
+    ~/.xinitrc: xinitrc
+    ~/.config/i3:
+        path: config/i3/
+        create: true
+    ~/.config/htop:
+        path: config/htop/
+        create: true
+    ~/.config/ranger:
+        path: config/ranger/
+        create: true
+    ~/.config/neofetch:
+        path: config/neofetch/
+        create: true
+    ~/.config/ibus/rime:
+        path: config/ibus/rime/
+        create: true
+    ~/.config/qutebrowser/keys.conf:
+        path: config/qutebrowser/keys.conf
+        create: true
+    ~/.config/qutebrowser/scripts:
+        path: config/qutebrowser/scripts/
+        create: true
+    ~/.config/cmus/autosave:
+        path: config/cmus/autosave
+        create: true
+
+

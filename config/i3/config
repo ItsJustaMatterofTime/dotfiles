@@ -1,0 +1,111 @@
+## Auto startup scripts
+exec --no-startup-id $HOME/bin/startup
+
+## Settings per application
+no_focus [class="(?i)qutebrowser"]
+
+## Settings per workspace
+### For some reason, the script DOES NOT work if auto start browser when i3 boots
+# exec_always $HOME/.config/i3/scripts/per-workspace-layout   # Set default container layout for each workspace
+
+## Settings
+workspace_layout tabbed                          # Set default layout container to tabs, may remove the rule when "Settings Per Workspace" got fixed
+workspace_auto_back_and_forth yes                # $mod+5 sends you to workspace 5, press $mod+5 again sends you back to where you came from
+new_window none                                  # Set border width to 0
+hide_edge_borders both                           # Hide border in all cases
+show_marks no                                    # No marks on windows are drawn in their window decoration
+font pango:firacode 13                           # Set font
+for_window [class="^.*"] border pixel 0          # Disable topbar when there is only one window in this workspace
+for_window [] border pixel 0                     # Disable bottom status bar for saving pixels
+
+## Auto starting applications on i3 startup
+exec --no-startup-id i3-msg 'workspace 1; exec urxvt -hold -e zsh -c "$HOME/bin/event && $HOME/bin/todo && $HOME/bin/updater && zsh"'
+exec --no-startup-id i3-msg 'workspace 2; exec qutebrowser'
+exec --no-startup-id i3-msg 'workspace 5; exec urxvt -hold -e zsh -c "mutt && zsh"' 
+exec --no-startup-id i3-msg 'workspace 10; exec urxvt -hold -e zsh -c "htop -C && zsh"' 
+exec --no-startup-id i3-msg 'workspace 1'               # This does not switch me back to workspace 1 though
+
+## Auto put programs in the specific workspace
+### No space after workspace number is allowed
+# assign [class="^URxvt$"] 1                                   # Match URxvt LITERALLY
+assign [class="(?i)qutebrowser"] 2
+# assign [class="^URxvt$" instance="^NeoMutt$"] 5              # urxvt -name NeoMutt
+
+## Set $mod
+set $mod Mod1
+set $mod4 Mod4
+floating_modifier $mod
+
+## Non-$mod shortcuts
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%           # Decrement volume by 5%
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%           # Increment volume by 5%
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle                 # Toggle volume
+bindsym --release Caps_Lock exec --no-startup-id $HOME/.config/i3/scripts/caps          # Map Caps_Lock to Control_R
+bindsym --release Next exec --no-startup-id cbluetooth                                  # Start bluetoo th controller
+bindsym --release Print exec --no-startup-id import $HOME/Pictures/screenshot.png       # Take a screenshot
+
+## $mod key bindings
+bindsym $mod+0 workspace 10
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+bindsym $mod+Return exec urxvt -hold -e zsh -c "$HOME/bin/event && $HOME/bin/todo && zsh"
+bindsym $mod+d kill
+bindsym $mod+e layout toggle split
+bindsym $mod+f exec --no-startup-id j4-dmenu-desktop --no-generic --dmenu='rofi -sync -dmenu -i -p "Run: " -config "$HOME/.config/i3/rofi/launcher.conf"'
+bindsym $mod+g split h
+bindsym $mod+h focus left
+bindsym $mod+i exec --no-startup-id "xcalib -a -i"
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+bindsym $mod+m fullscreen toggle
+bindsym $mod+n exec --no-startup-id rofi -config "$HOME/.config/i3/rofi/clipboard.conf" -modi "clipboard:$HOME/.config/i3/scripts/greenclip print" -show "clipboard"
+bindsym $mod+p focus parent
+bindsym $mod+r mode "resize"
+bindsym $mod+s layout stacking
+bindsym $mod+space focus mode_toggle
+bindsym $mod+v split v
+bindsym $mod+w layout tabbed
+
+## $mod+Shift key bindings
+bindsym $mod+Shift+0 move container to workspace 10
+bindsym $mod+Shift+1 move container to workspace 1
+bindsym $mod+Shift+2 move container to workspace 2
+bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+5 move container to workspace 5
+bindsym $mod+Shift+6 move container to workspace 6
+bindsym $mod+Shift+7 move container to workspace 7
+bindsym $mod+Shift+8 move container to workspace 8
+bindsym $mod+Shift+9 move container to workspace 9
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+bindsym $mod+Shift+r restart
+bindsym $mod+Shift+space floating toggle
+
+## $mod4 key bindings
+bindsym $mod4+k move container up
+bindsym $mod4+j move container down
+bindsym $mod4+l move container right
+bindsym $mod4+h move container left
+
+mode "resize" {
+
+        bindsym h resize shrink width 10 px or 10 ppt
+        bindsym k resize grow height 10 px or 10 ppt
+        bindsym j resize shrink height 10 px or 10 ppt
+        bindsym l resize grow width 10 px or 10 ppt
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}

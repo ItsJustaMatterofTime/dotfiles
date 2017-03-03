@@ -1,0 +1,40 @@
+
+" Ctrl+n Ctrl+p is set via IDE setting, not here
+
+nmap <C-j> :action MethodDown<CR>
+nmap <C-k> :action MethodUp<CR>
+nmap <C-h> :action PreviousTab<CR>
+
+nmap <C-[> :action HideActiveWindow<CR>
+omap <C-[> <Esc>
+
+imap <C-l> <Right><Space>
+nmap <C-l> :action NextTab<CR>
+
+imap <C-CR> <Esc>:action EditorStartNewLine<CR>i
+nmap <C-CR> :action EditorStartNewLine<CR>
+
+imap f; <Esc>:action Macro.CompleteStatement<CR>i
+imap ;f <Esc>:action Macro.CompleteStatement<CR>i
+
+imap fk <space><Esc>:action Macro.CompleteKeyword<CR>i
+imap kf <space><Esc>:action Macro.CompleteKeyword<CR>i
+
+imap qq <Esc>:action JRebel Executor<CR>
+
+" nmap <space>w :action MethodHierarchy.OverrideMethodAction<CR>
+" nmap <space>q :action GuiDesigner.QuickJavadoc<CR>
+" nmap <space>t :action Vcs.UpdateProject<CR>
+nmap <space>a :action GotoAction<CR>
+nmap <space>c :action CloseContent<CR>
+nmap <space>d :action JRebel Debug<CR>
+nmap <space>e :action JRebel Executor<CR>
+nmap <space>i ko<Esc>jddka
+nmap <space>m :action ImplementMethods<CR>
+nmap <space>o :action EditorStartNewLine<CR>o
+nmap <space>r :action RecentFiles<CR>
+nmap <space>u :action GotoSuperMethod<CR>
+
+set surround
+
+source /home/sparklinggt/.vimrc

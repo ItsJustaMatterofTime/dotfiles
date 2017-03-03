@@ -1,0 +1,2 @@
+pacaur -Syu --devel --noconfirm --needed
+zsh
