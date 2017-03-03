@@ -11,34 +11,63 @@ set folder = imaps://imap.gmail.com/
 set spoolfile = +INBOX
 set postponed = "+[Gmail]/Drafts"
 
+########
 ## UI ##
 ########        ## bright<color> to make it bold
 set sidebar_format = "%B%?F? [%F]?%* %?N?%N/?%S"        # Set sidebar format
 set sidebar_width = 30                                  # Measured in screen columns. Set to 20 could display 20 ASCII characters, or 10 Chinese characters
 set sidebar_visible = yes                               # Show sidebar
 set sidebar_divider_char=' |'                           # new set sidebar delim
-color sidebar_new brightgreen default                    # Specify the color of mailboxes containing new mail
 
-color header white        default .                     # Headers are this color,
-color header red    white ^Subject                      # Except for `Subject:'.
-color header black          green   ^Followup-To:       # Followup header
-color status    brightblue default
-color indicator default red 
-color markers   cyan  black
+color sidebar_new    brightgreen     default                         # Specify the color of mailboxes containing new mail
+color header         white           default     .                   # Headers are this color,
+color header         red             white       ^Subject            # Except for `Subject:'.
+color header         black           green       ^Followup-To:       # Followup header
+color status         brightblue      default
+color indicator      default         red
+color markers        cyan            black
+color quoted0        blue            default
+color quoted1        green           default
+color quoted2        red             default
+color quoted3        blue            default
+color quoted4        green           default
+color quoted5        red             default
+color quoted6        blue            default
+color signature      green           default
+color tilde          cyan            default
+color tree           magenta         default
+color index          brightyellow    default     ~N                  # Make new messages yellow
+color body       color244 color234 '\\[0-9]{3}'
+color body       color244 color234 '&[#a-z0-9]+;'
+color body       color174 color234 '(\w+://|www\.)[-.a-z0-9]+\.[a-z]{2,}[A-Za-z0-9;:.~_/%@#?+&=-]*'                # URLs
+color body       color229 color234 '[a-z0-9.+-]+@[a-z0-9.-]+\.[a-z]{2,4}'
+color body       color150 color234 '[-=+#_*~]{3,}.*'                                                               # Lines
+color body       color150 color234 '^[#~].*'
+color body       color150 color234 '^[=-].*[=-]$'
+color body       color181 color234 '\[([0-9]+|IMG)\]'                                                              # Link-Tags
+color body       color248 color234 '(^|[^[:alnum:]])([Oo]n)? .*wrote:$' # Attribution lines
+color body       color248 color234 '(^|[^[:alnum:]])([Oo]n)? .* was blubbering:$'
+color body       color248 color234 '(^|[^[:alnum:]])([Oo]n)? .* blubbered:$'
+color body       color248 color234 '(^|[^[:alnum:]])[0-9]{4}/[0-9]{1,2}/[0-9]{1,2} .*:$'
+color body       color248 color234 '(^|[^[:alnum:]])Am.*\+[0-9]{4}$'
+color body       color248 color234 '(^|[^[:alnum:]])schrieb .* <.*@.*>:$'
+color body       color248 color234 '(^|[^[:alnum:]])\* .* \[[0-9 -:+]*\]:$'
+color body       color146 color234 '^gpg.*'                                                                        # PGP
+color body       color146 color234 '^Primary key fingerprint:.*'
+color body       color146 color234 '^     Subkey fingerprint:.*'
+color body       color150 color234 '^gpg: Good signature .*'
+color body       brightwhite red   '^gpg: BAD signature from.*'
+color body       color229 color234 '^gpg: WARNING.*'
+color body       color229 color234 '^gpg: There is no indication that the signature belongs to the owner.'
+color body       color229 color234 '^gpg: no valid OpenPGP data found.*'
+color body       green color234    '^Verification successful'                                                      # OpenSSL
+color body       brightwhite red   '^Verification failure'
+color body       yellow color234   '^Error reading S/MIME message'                                                 # S/MIME
+color body       color229 color234 '(^|\W)[\*]\w.*\w[\*]($|\W)' # *bold*
+color body       color229 color234 '(^|\W)_\w[[:alpha:]]*\w_($|\W)'     # _underlined_
+color body       color229 color234 '(^|\W)/\w[^/]*\w/($|\W)'    # /italics/
 
-color quoted0   blue        default
-color quoted1   green       default
-color quoted2   red         default
-color quoted3   blue        default
-color quoted4   green       default
-color quoted5   red         default
-color quoted6   blue        default
-color signature green       default
-color tilde     cyan  default
-color   tree        magenta             default
-
-color index brightyellow default ~N                      # Make new messages yellow
-
+############
 ## Format ##
 ############
 set index_format   = "%4C   %Z   %{%d %b %y [%Z]}   %-15.15F   %s"
@@ -46,6 +75,7 @@ set forward_format="Fw: %s"     # subject in forwarded messages
 set date_format="%d/%m/%y %H:%M %Z"
 set quote_regexp="^([A-Za-z ]+>|[]%>:|}-][]>:|}-]*)"
 
+#############
 ## Setting ##
 #############
 # set editor            = "vim +/^$ ++1"          # Set editor for composing emails
@@ -81,6 +111,7 @@ ignore *
 unignore From To Cc Bcc Subject Reply-To Organization User-Agent
 hdr_order From To Cc Subject User-Agent
 
+###################
 ## Custom Header ##
 ###################
 set edit_headers=yes                            # This option allows you to edit the header of your outgoing messages along with the body of your message
@@ -90,6 +121,7 @@ unset user_agent                                # Don't add mutt header to sent 
 my_hdr User-Agent: Send from `mutt -vv | ag -s NeoMutt | sed -n 1p`, `mutt -vv | ag -s learn | sed -n 1p`         # NeoMutt Info
 my_hdr System: `uname -s` `uname -r` (`uname -m`)                                                                 # System Info
 
+#####################
 ## Custom Shortcut ##
 #####################
 # bind attach <return> view-mailcap
@@ -103,7 +135,38 @@ macro index gs "<change-folder>=[Gmail]/Starred<enter>" "Go to starred messages"
 macro index gd "<change-folder>=[Gmail]/Drafts<enter>" "Go to drafts"
 macro index gt "<change-folder>=[Gmail]/Trash<enter>" "Go to trash"
 
+# Moving around
+bind attach,browser,index       gg  first-entry
+bind attach,browser,index       G   last-entry
+bind pager                      gg  top
+bind pager                      G   bottom
+bind pager                      k   previous-line
+bind pager                      j   next-line
 
+# Scrolling
+bind attach,browser,pager,index \CF next-page
+bind attach,browser,pager,index \CB previous-page
+bind attach,browser,pager,index \Cu half-up
+bind attach,browser,pager,index \Cd half-down
+bind browser,pager              \Ce next-line
+bind browser,pager              \Cy previous-line
+bind index                      \Ce next-line
+bind index                      \Cy previous-line
+
+bind pager,index                dd  delete-message
+
+# Mail & Reply
+bind index                      \Cm list-reply # Doesn't work currently
+
+# Threads
+bind browser,pager,index        N   search-opposite
+bind pager,index                dT  delete-thread
+bind pager,index                dt  delete-subthread
+bind pager,index                gt  next-thread
+bind pager,index                gT  previous-thread
+bind index                      za  collapse-thread
+bind index                      zA  collapse-all # Missing :folddisable/foldenable
+##################
 ## URL handling ##
 ##################
 macro index,pager ,b "<enter-command> set my_pdsave=\$pipe_decode<enter>\
@@ -119,6 +182,24 @@ macro index,pager ,B "<enter-command> set my_pdsave=\$pipe_decode<enter>\
 message-hook .  'macro index,pager \cb ,b "URL viewer"'
 message-hook ~G 'macro index,pager \cb ,B "URL viewer"'
 
+################################################
+## Handle studip multipart/alternative emails ##
+################################################
+macro pager ,@aoh= "\
+<enter-command> unalternative_order *; \
+alternative_order text/enriched text/html text/plain text;\
+macro pager A ,@aot= 'toggle alternative order'<enter>\
+<exit><display-message>"
+
+macro pager ,@aot= "\
+<enter-command> unalternative_order *; \
+alternative_order text/enriched text/plain text/html text;\
+macro pager A ,@aoh= 'toggle alternative order'<enter>\
+<exit><display-message>"
+
+macro pager A ,@aot= "toggle alternative order"
+
+################
 ## Encryption ##
 ################
 # my_gpg_id
