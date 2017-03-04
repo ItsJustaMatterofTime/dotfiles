@@ -30,7 +30,7 @@ URxvt.keysym.C-BackSpace:    matcher:last
 ! URxvt.keysym.M-Delete:    matcher:list
 ! URxvt.keysym.C-BackSpace: matcher:select
 URxvt.matcher.launcher.0: /usr/bin/qutebrowser
-URxvt.matcher.rend.0: Uline Bold fg5
+URxvt.matcher.rend.0: Uline Bold fg6                    # color 8 ~ color 15 is fg<num>
 ! URxvt.matcher.pattern.1: \\B(/\\S+?):(\\d+)(?=:|$)               ! gcc and all
 ! URxvt.matcher.pattern.2: (?:\\s)([\\~\\.]?\\/\{1,1\}[\\.\\w]\\S+)\\b
 ! URxvt.matcher.launcher.0: xdg-open
