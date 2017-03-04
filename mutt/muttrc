@@ -26,6 +26,12 @@ color header         black           green       ^Followup-To:       # Followup 
 color status         brightblue      default
 color indicator      default         red
 color markers        cyan            black
+color signature      green           default
+color tilde          cyan            default
+color tree           magenta         default
+color attachment     color219        default
+color error          brightwhite     color196 
+color search         brightyellow    color238
 color quoted0        blue            default
 color quoted1        green           default
 color quoted2        red             default
@@ -33,14 +39,13 @@ color quoted3        blue            default
 color quoted4        green           default
 color quoted5        red             default
 color quoted6        blue            default
-color signature      green           default
-color tilde          cyan            default
-color tree           magenta         default
 color index          brightyellow    default     ~N                  # Make new messages yellow
+color index	     color202   	default  ~F                  # Flagged
+color index          color39     	default  ~O                  # Old
+color index          color229     	color22  ~T                  # Tagged
+color index          color240     	default  ~D                  # Deleted
 color body       color244 color234 '\\[0-9]{3}'
 color body       color244 color234 '&[#a-z0-9]+;'
-color body       color174 color234 '(\w+://|www\.)[-.a-z0-9]+\.[a-z]{2,}[A-Za-z0-9;:.~_/%@#?+&=-]*'                # URLs
-color body       color229 color234 '[a-z0-9.+-]+@[a-z0-9.-]+\.[a-z]{2,4}'
 color body       color150 color234 '[-=+#_*~]{3,}.*'                                                               # Lines
 color body       color150 color234 '^[#~].*'
 color body       color150 color234 '^[=-].*[=-]$'
@@ -66,6 +71,16 @@ color body       yellow color234   '^Error reading S/MIME message'              
 color body       color229 color234 '(^|\W)[\*]\w.*\w[\*]($|\W)' # *bold*
 color body       color229 color234 '(^|\W)_\w[[:alpha:]]*\w_($|\W)'     # _underlined_
 color body       color229 color234 '(^|\W)/\w[^/]*\w/($|\W)'    # /italics/
+
+## URLs          [Overlaps my urxvt matcher setting, but it's fine] 
+color body       brightblue color234 "([a-z][a-z0-9+-]*://(((([a-z0-9_.!~*'();:&=+$,-]|%[0-9a-f][0-9a-f])*@)?((([a-z0-9]([a-z0-9-]*[a-z0-9])?)\\.)*([a-z]([a-z0-9-]*[a-z0-9])?)\\.?|[0-9]+\\.[0-9]+\\.[0-9]+\\.[0-9]+)(:[0-9]+)?)|([a-z0-9_.!~*'()$,;:@&=+-]|%[0-9a-f][0-9a-f])+)(/([a-z0-9_.!~*'():@&=+$,-]|%[0-9a-f][0-9a-f])*(;([a-z0-9_.!~*'():@&=+$,-]|%[0-9a-f][0-9a-f])*)*(/([a-z0-9_.!~*'():@&=+$,-]|%[0-9a-f][0-9a-f])*(;([a-z0-9_.!~*'():@&=+$,-]|%[0-9a-f][0-9a-f])*)*)*)?(\\?([a-z0-9_.!~*'();/?:@&=+$,-]|%[0-9a-f][0-9a-f])*)?(#([a-z0-9_.!~*'();/?:@&=+$,-]|%[0-9a-f][0-9a-f])*)?|(www|ftp)\\.(([a-z0-9]([a-z0-9-]*[a-z0-9])?)\\.)*([a-z]([a-z0-9-]*[a-z0-9])?)\\.?(:[0-9]+)?(/([-a-z0-9_.!~*'():@&=+$,]|%[0-9a-f][0-9a-f])*(;([-a-z0-9_.!~*'():@&=+$,]|%[0-9a-f][0-9a-f])*)*(/([-a-z0-9_.!~*'():@&=+$,]|%[0-9a-f][0-9a-f])*(;([-a-z0-9_.!~*'():@&=+$,]|%[0-9a-f][0-9a-f])*)*)*)?(\\?([-a-z0-9_.!~*'();/?:@&=+$,]|%[0-9a-f][0-9a-f])*)?(#([-a-z0-9_.!~*'();/?:@&=+$,]|%[0-9a-f][0-9a-f])*)?)[^].,:;!)? \t\r\n<>\"]"
+
+## Emails
+color body       color229 color234 "((@(([0-9a-z-]+\\.)*[0-9a-z-]+\\.?|#[0-9]+|\\[[0-9]?[0-9]?[0-9]\\.[0-9]?[0-9]?[0-9]\\.[0-9]?[0-9]?[0-9]\\.[0-9]?[0-9]?[0-9]\\]),)*@(([0-9a-z-]+\\.)*[0-9a-z-]+\\.?|#[0-9]+|\\[[0-9]?[0-9]?[0-9]\\.[0-9]?[0-9]?[0-9]\\.[0-9]?[0-9]?[0-9]\\.[0-9]?[0-9]?[0-9]\\]):)?[0-9a-z_.+%$-]+@(([0-9a-z-]+\\.)*[0-9a-z-]+\\.?|#[0-9]+|\\[[0-2]?[0-9]?[0-9]\\.[0-2]?[0-9]?[0-9]\\.[0-2]?[0-9]?[0-9]\\.[0-2]?[0-9]?[0-9]\\])" 
+
+############
+# color body       color12 color234 '(\w+://|www\.)[-.a-z0-9]+\.[a-z]{2,}[A-Za-z0-9;:.~_/%@#?+&=-]*'                # URLs
+# color body       color229 color234 '[a-z0-9.+-]+@[a-z0-9.-]+\.[a-z]{2,4}'                                         # Emails
 
 ############
 ## Format ##
