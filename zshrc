@@ -99,8 +99,11 @@ alias rg="ranger"
 alias k380="sudo k380"
 alias pa="pacaur"
 alias ping8="ping -c 10 8.8.8.8"
+
 alias vim="vim -u $HOME/.vim/vimrc"
 alias mutt="mutt -F $HOME/.mutt/muttrc"
+alias colorfg="colorfg -w -r -s"
+
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
