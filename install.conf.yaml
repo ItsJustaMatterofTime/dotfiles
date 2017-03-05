@@ -12,6 +12,7 @@
     ~/.vim:
         path: vim/
         create: true
+    ~/.gvimrc: gvimrc
     ~/.ideavimrc: ideavimrc
     ~/.oh-my-zsh:
         path: oh-my-zsh/
