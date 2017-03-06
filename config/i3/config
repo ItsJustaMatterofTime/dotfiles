@@ -17,9 +17,10 @@ show_marks no                                    # No marks on windows are drawn
 font pango:firacode 13                           # Set font
 # for_window [class="^.*"] border pixel 0          # Disable window titlebars completely
 
+
 ## Auto starting applications on i3 startup
 exec --no-startup-id i3-msg 'workspace 1; exec urxvt -hold -e zsh -c "$HOME/bin/event && $HOME/bin/todo && $HOME/bin/updater && zsh"'
-exec --no-startup-id i3-msg 'workspace 2; exec qutebrowser'
+exec --no-startup-id i3-msg 'workspace 2; exec qutebrowser --backend=webengine'
 exec --no-startup-id i3-msg 'workspace 5; exec urxvt -hold -e zsh -c "mutt && zsh"' 
 exec --no-startup-id i3-msg 'workspace 10; exec urxvt -hold -e zsh -c "htop -C && zsh"; workspace 1' 
 
