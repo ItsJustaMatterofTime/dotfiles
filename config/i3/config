@@ -15,7 +15,7 @@ new_window none                                  # Set border width to 0
 hide_edge_borders both                           # Hide border in all cases
 show_marks no                                    # No marks on windows are drawn in their window decoration
 font pango:firacode 13                           # Set font
-for_window [class="^.*"] border pixel 0          # Disable topbar when there is only one window in this workspace
+# for_window [class="^.*"] border pixel 0          # Disable window titlebars completely
 
 ## Auto starting applications on i3 startup
 exec --no-startup-id i3-msg 'workspace 1; exec urxvt -hold -e zsh -c "$HOME/bin/event && $HOME/bin/todo && $HOME/bin/updater && zsh"'
