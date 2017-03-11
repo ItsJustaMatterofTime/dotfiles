@@ -1,6 +1,0 @@
-shortcut                                            # No prompt when opening URL
-COMMAND qutebrowser --backend=webengine %s &        # Browser to open URLs
-ignore_empty_tags                                   # Ignore empty HTML tags
-
-## See More: http://www.memoryhole.net/~kyle/extract_url/
-

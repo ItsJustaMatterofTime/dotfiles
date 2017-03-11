@@ -3,9 +3,9 @@ source "gpg2 -dq $HOME/.mutt/user-info.gpg |"
 ## my_realname_(passport/simplified/traditional/english)
 ## my_gpg_id
 
-set imap_user = $my_work_email
-set imap_pass = $my_work_pass
-set smtp_url=smtps://$my_work_email:$my_work_pass@smtp.gmail.com
+set imap_user = $my_junk_email
+set imap_pass = $my_junk_pass
+set smtp_url=smtps://$my_junk_email:$my_junk_pass@smtp.gmail.com
 
 set folder = imaps://imap.gmail.com/
 set spoolfile = +INBOX
@@ -181,21 +181,13 @@ bind pager,index                gt  next-thread
 bind pager,index                gT  previous-thread
 bind index                      za  collapse-thread
 bind index                      zA  collapse-all # Missing :folddisable/foldenable
+
 ##################
 ## URL handling ##
 ##################
-macro index,pager ,b "<enter-command> set my_pdsave=\$pipe_decode<enter>\
-<enter-command> unset pipe_decode<enter>\
-<pipe-message>extract_url<enter>\
-<enter-command> set pipe_decode=\$my_pdsave<enter>" "get URLs"
 
-macro index,pager ,B "<enter-command> set my_pdsave=\$pipe_decode<enter>\
-<enter-command> set pipe_decode<enter>\
-<pipe-message>extract_url<enter>\
-<enter-command> set pipe_decode=\$my_pdsave<enter>" "decrypt message, then get URLs"
-
-# message-hook .  'macro index,pager \cb ,b "URL viewer"'
-# message-hook ~G 'macro index,pager \cb ,B "URL viewer"'
+macro index,pager \cb "<pipe-message> urlscan<Enter>" "call urlscan to extract URLs out of a message"
+macro attach,compose \cb "<pipe-entry> urlscan<Enter>" "call urlscan to extract URLs out of a message"
 
 ################################################
 ## Handle studip multipart/alternative emails ##
