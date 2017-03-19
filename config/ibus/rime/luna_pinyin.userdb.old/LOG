@@ -1,6 +1,0 @@
-2017/01/26-12:01:30.124731 7f4bfed7d700 Log #305: 0 ops saved to Table #306 OK
-2017/01/26-12:01:30.124992 7f4bfed7d700 Archiving /home/sparklinggt/.config/ibus/rime/luna_pinyin.userdb/000305.log: OK
-2017/01/26-12:01:30.125364 7f4bfed7d700 Table #300: 2612 entries OK
-2017/01/26-12:01:30.125382 7f4bfed7d700 Table #302: 2 entries OK
-2017/01/26-12:01:30.125465 7f4bfed7d700 Archiving /home/sparklinggt/.config/ibus/rime/luna_pinyin.userdb/MANIFEST-000304: OK
-2017/01/26-12:01:30.130151 7f4bfed7d700 **** Repaired leveldb /home/sparklinggt/.config/ibus/rime/luna_pinyin.userdb; recovered 2 files; 72842 bytes. Some data may have been lost. ****
