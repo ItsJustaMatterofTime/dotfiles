@@ -43,8 +43,8 @@
     ~/.config/qutebrowser:
         path: config/qutebrowser
         create: true
-    ~/.config/ibus/rime:
-        path: config/ibus/rime/
+    ~/.config/fcitx:
+        path: config/fcitx
         create: true
     ~/.config/cmus/autosave:
         path: config/cmus/autosave
