@@ -6,7 +6,7 @@
 # for code ({000..255}) print -P -- "$code: %F{$code}This is how your text would look like%f"
 
 export TERM='rxvt-256color'
-POWERLEVEL9K_MODE='nerdfont-config'                                     # specify mode
+POWERLEVEL9K_MODE='nerdfont-fontconfig'                                 # specify mode
 
 
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(battery dir background_jobs root_indicator status)
