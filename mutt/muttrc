@@ -3,9 +3,9 @@ source "gpg2 -dq $HOME/.mutt/user-info.gpg |"
 ## my_realname_(passport/simplified/traditional/english)
 ## my_gpg_id
 
-set imap_user = $my_junk_email
-set imap_pass = $my_junk_pass
-set smtp_url=smtps://$my_junk_email:$my_junk_pass@smtp.gmail.com
+set imap_user = $my_work_email
+set imap_pass = $my_work_pass
+set smtp_url=smtps://$my_work_email:$my_work_pass@smtp.gmail.com
 
 set folder = imaps://imap.gmail.com/
 set spoolfile = +INBOX
