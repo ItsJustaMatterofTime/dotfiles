@@ -7,9 +7,6 @@
         create: true
     ~/.gvimrc: gvimrc
     ~/.ideavimrc: ideavimrc
-    ~/.oh-my-zsh:
-        path: oh-my-zsh/
-        create: true
     ~/.zprofile: zprofile
     ~/.zshrc: zshrc
     ~/.mutt/gpg.rc:

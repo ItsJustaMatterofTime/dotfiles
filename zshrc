@@ -83,7 +83,7 @@ DISABLE_UPDATE_PROMPT=true
 # >>>>>>>>>>>>>>
 
 ZSH=/usr/share/oh-my-zsh/                       # Path to your oh-my-zsh installation.
-ZSH_THEME="powerlevel9k/powerlevel9k"           # Your theme directory
+ZSH_THEME=zsh-theme-powerlevel9k/powerlevel9k   # Your theme directory
 
 CASE_SENSITIVE="true"                           # Whether letter case matters
 HYPHEN_INSENSITIVE="false"                      # Hyphen-insensitive completion. Case sensitive completion must be off. _ and - will be interchangeable.
@@ -92,7 +92,7 @@ export UPDATE_ZSH_DAYS=1                        # How often to auto-update (in d
 DISABLE_AUTO_TITLE="false"                      # Auto-setting terminal title.
 ENABLE_CORRECTION="true"                        # Command auto-correction.
 COMPLETION_WAITING_DOTS="true"                  # Display red dots whilst waiting for completion.
-ZSH_CUSTOM=$HOME/.oh-my-zsh                     # Another custom folder than $ZSH/custom
+# ZSH_CUSTOM=$HOME/.oh-my-zsh                     # Another custom folder than $ZSH/custom
 
 alias yt="youtube-dl --extract-audio --audio-format best --audio-quality 0 --prefer-ffmpeg --format bestaudio"
 alias rg="ranger"
