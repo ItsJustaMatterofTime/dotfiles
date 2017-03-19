@@ -1,9 +1,3 @@
-
-
-- link:
-    ~/.vimrc: vimrc
-
-
 - clean: ['~']
 
 - link:
@@ -49,17 +43,12 @@
     ~/.config/neofetch:
         path: config/neofetch/
         create: true
+    ~/.config/qutebrowser:
+        path: config/qutebrowser
+        create: true
     ~/.config/ibus/rime:
         path: config/ibus/rime/
-        create: true
-    ~/.config/qutebrowser/keys.conf:
-        path: config/qutebrowser/keys.conf
-        create: true
-    ~/.config/qutebrowser/scripts:
-        path: config/qutebrowser/scripts/
         create: true
     ~/.config/cmus/autosave:
         path: config/cmus/autosave
         create: true
-
-
