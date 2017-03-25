@@ -1,3 +1,4 @@
 text/html; mv %s %s.html && qutebrowser --backend=webengine %s.html >/dev/null 2>/dev/null &; test=test -n "$DISPLAY"; needsterminal;
 text/html; w3m -I %{charset} -T text/html; copiousoutput;
 image; sxiv %s &; copiousoutput;
+application/pdf; mupdf %s &; copiousoutput; test=test -n "$DISPLAY"; needsterminal;
