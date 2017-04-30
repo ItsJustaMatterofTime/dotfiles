@@ -1,11 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =9
-let g:netrw_dirhist_1='/home/sparklinggt'
-let g:netrw_dirhist_2='/usr/lib/systemd/system-sleep'
-let g:netrw_dirhist_3='/tmp'
-let g:netrw_dirhist_4='/'
-let g:netrw_dirhist_5='/tmp'
-let g:netrw_dirhist_6='/home/sparklinggt/.urxvt'
-let g:netrw_dirhist_7='/home/sparklinggt/.mutt'
-let g:netrw_dirhist_8='/home/sparklinggt'
-let g:netrw_dirhist_9='/home/sparklinggt/.dotfiles/mutt'
+let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_1='/home/sparklinggt/.config/fcitx/conf'
+let g:netrw_dirhist_2='/home/sparklinggt/.config/fcitx'
+let g:netrw_dirhist_3='/home/sparklinggt/.config/fcitx/conf'
+let g:netrw_dirhist_4='/home/sparklinggt/.config/fcitx'

@@ -1,12 +1,14 @@
 search nex
-open_with cmus
 open_with gthumb
 rename lockscreen.jpg
 open_with google-chrome-unstable
-
 search Pic
 open_with 
 find 
 search jul
 find abschied
+open_with mupdf
+sxiv
+
 delete
+open_with cmus

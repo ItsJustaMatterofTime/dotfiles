@@ -37,4 +37,4 @@ nmap <space>u :action GotoSuperMethod<CR>
 
 set surround
 
-source /home/sparklinggt/.vimrc
+source /home/sparklinggt/.vim/vimrc

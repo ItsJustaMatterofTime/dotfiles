@@ -1,0 +1,4 @@
+#!/bin/bash
+
+time=`date +%F\ %Hh-%Mm-%Ss` 
+import "$HOME/Pictures/screenshot $time.png"
