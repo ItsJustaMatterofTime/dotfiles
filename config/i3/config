@@ -21,6 +21,7 @@ font pango:firacode 13                           # Set font
 ## Auto starting applications on i3 startup
 exec --no-startup-id i3-msg 'workspace 1; exec urxvt -hold -e zsh -c "$HOME/bin/event && $HOME/bin/todo && $HOME/bin/updater && zsh"'
 exec --no-startup-id i3-msg 'workspace 2; exec qutebrowser --backend=webengine'
+exec --no-startup-id i3-msg 'workspace 3; exec telegram-desktop'
 exec --no-startup-id i3-msg 'workspace 5; exec urxvt -hold -e zsh -c "mutt && zsh"' 
 exec --no-startup-id i3-msg 'workspace 10; exec urxvt -hold -e zsh -c "htop -C && zsh"; workspace 1' 
 
@@ -28,6 +29,7 @@ exec --no-startup-id i3-msg 'workspace 10; exec urxvt -hold -e zsh -c "htop -C &
 ### No space after workspace number is allowed
 # assign [class="^URxvt$"] 1                                   # Match URxvt LITERALLY
 assign [class="(?i)qutebrowser"] 2
+assign [class="(?i)telegram"] 3
 # assign [class="^URxvt$" instance="^NeoMutt$"] 5              # urxvt -name NeoMutt
 
 ## Set $mod

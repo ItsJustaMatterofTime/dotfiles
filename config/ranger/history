@@ -3,12 +3,28 @@ open_with gthumb
 rename lockscreen.jpg
 open_with google-chrome-unstable
 search Pic
-open_with 
-find 
 search jul
 find abschied
 open_with mupdf
 sxiv
+open_with cmus
+mkdir college
+rename Prerequisite_Form2017.pdf
+rename Prerequisite_Math_292.pdf
+rename Prerequisite_ALL.pdf
+rename seq-comsc.pdf
+rename Schedule-Request.pdf
+open_with r
+shell 
+find 
+md physics
+mkdir physics
+mkdir anarchism
+open_with 
+rename x
 
 delete
-open_with cmus
+mkdir telegram
+mkdir theme
+vim theme.tdesktop-theme
+vim theme.tdesktop.theme
