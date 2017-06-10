@@ -20,11 +20,11 @@ find
 md physics
 mkdir physics
 mkdir anarchism
-open_with 
 rename x
 
-delete
 mkdir telegram
 mkdir theme
 vim theme.tdesktop-theme
 vim theme.tdesktop.theme
+open_with 
+delete

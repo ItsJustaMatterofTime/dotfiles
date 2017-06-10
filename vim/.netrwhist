@@ -1,5 +1,5 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =7
+let g:netrw_dirhist_cnt =8
 let g:netrw_dirhist_1='/home/sparklinggt/.config/fcitx/conf'
 let g:netrw_dirhist_2='/home/sparklinggt/.config/fcitx'
 let g:netrw_dirhist_3='/home/sparklinggt/.config/fcitx/conf'
@@ -7,3 +7,4 @@ let g:netrw_dirhist_4='/home/sparklinggt/.config/fcitx'
 let g:netrw_dirhist_5='/home/sparklinggt/.dotfiles/config/fcitx/conf'
 let g:netrw_dirhist_6='/home/sparklinggt/.dotfiles/config/fcitx'
 let g:netrw_dirhist_7='/home/sparklinggt/.dotfiles/config'
+let g:netrw_dirhist_8='/home/sparklinggt/.dotfiles/config/qutebrowser/bookmarks'
