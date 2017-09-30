@@ -1,3 +1,4 @@
 #!/bin/bash
-xrandr --output eDP1 --brightness .30
+xrandr --output eDP1 --brightness .35
+xrandr --output HDMI2 --brightness .40
 exit 0

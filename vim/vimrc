@@ -32,7 +32,7 @@ set autowrite                              " Save file when executing some comma
 set gdefault                               " Set substitute flag g as default, pass g to replace only one occurence in a line
 set smarttab
 set expandtab
-set autoindent
+" set autoindent
 set incsearch                              " Hightlight the first searched result
 set history=1000
 set scrolloff=5                            " Keep <number> lines above and below the cursor

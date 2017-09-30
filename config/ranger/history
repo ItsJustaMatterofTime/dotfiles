@@ -21,10 +21,11 @@ md physics
 mkdir physics
 mkdir anarchism
 rename x
-
 mkdir telegram
 mkdir theme
 vim theme.tdesktop-theme
 vim theme.tdesktop.theme
+open_with vim
+
 open_with 
 delete
