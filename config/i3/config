@@ -62,10 +62,10 @@ bindsym $mod+e layout toggle split
 bindsym $mod+f exec --no-startup-id j4-dmenu-desktop --no-generic --dmenu='rofi -sync -dmenu -i -p "Run: " -config "$HOME/.config/i3/rofi/launcher.conf"'
 bindsym $mod+g split h
 bindsym $mod+h focus left
-bindsym $mod+i exec --no-startup-id "xcalib -a -i"
 bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
+bindsym $mod+i exec --no-startup-id "xrandr-invert-colors -s 1"
 bindsym $mod+m fullscreen toggle
 bindsym $mod+n exec --no-startup-id rofi -config "$HOME/.config/i3/rofi/clipboard.conf" -modi "clipboard:$HOME/.config/i3/scripts/greenclip print" -show "clipboard"
 bindsym $mod+p focus parent
@@ -87,6 +87,7 @@ bindsym $mod+Shift+7 move container to workspace 7
 bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+c reload
+bindsym $mod+Shift+i exec --no-startup-id "xcalib -a -i"
 bindsym $mod+Shift+h move left
 bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up

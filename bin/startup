@@ -5,7 +5,7 @@
 sleep 1
 sudo /usr/local/bin/k380 > /dev/null                    # Fn keys for k380
 $HOME/.config/i3/scripts/greenclip daemon&              # Start clipboard manager
-xrandr --output HDMI2 --right-of eDP1                   # Setup External Monitor
+xrandr --output HDMI2 --left-of eDP1                   # Setup External Monitor
 
 # event                                                   # Print calendar events
 # todo                                                    # Print TODO
