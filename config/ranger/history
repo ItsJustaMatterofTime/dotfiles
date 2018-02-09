@@ -28,4 +28,5 @@ vim theme.tdesktop.theme
 open_with vim
 
 open_with 
+sudo rm 
 delete

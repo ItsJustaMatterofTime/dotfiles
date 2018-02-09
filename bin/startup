@@ -10,4 +10,6 @@ xrandr --output HDMI2 --left-of eDP1                   # Setup External Monitor
 # event                                                   # Print calendar events
 # todo                                                    # Print TODO
 
+sleep 5
+sudo /usr/bin/ntpd https://time.is > /dev/null          # Synchronize time in accordance with time.is
 exit 0

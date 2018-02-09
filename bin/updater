@@ -1,3 +1,5 @@
 pacaur -Syu --devel --noconfirm --needed
 pacaur -Rns $(pacaur -Qtdq)
+paccache -r
+
 zsh
